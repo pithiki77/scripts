@@ -53,7 +53,7 @@ echo %mydate%
 
 
 ren %lpath%\Backup.log backuplog%mydate%.log
-copy %lpath%\backuplog%mydate%.log \\10.65.142.70\PC_Bkps\%user%\backuplog%mydate%.log
+copy %lpath%\backuplog%mydate%.log \\DESTINATION_IP\PC_Bkps\%user%\backuplog%mydate%.log
 
 
 #>
