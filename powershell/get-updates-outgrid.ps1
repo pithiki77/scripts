@@ -55,17 +55,7 @@ $upgradeResult | ForEach-Object -Process {
 }
 
 # view the list
-$upgrades | Format-Table
+# $upgrades | Format-Table
 
-# run through the list, compare with the skip list and execute the upgrade (could be done in the upper foreach as well)
-$upgrades | ForEach-Object -Process {
-
-  if ($skipUpdate -contains $_.Id)
-  {
-    Write-Host "Skipped upgrade to package $($_.id)"
-    return
-  }
-
-  Write-Host "Going to upgrade $($_.Id)"
-  winget upgrade -u $_.Id
-}
+#select and upgrade install only selected
+$upgrades | out-gridview -passthru| % { winget upgrade --id $_.Id }

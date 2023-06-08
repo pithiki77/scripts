@@ -1,12 +1,3 @@
-
-#from https://gist.github.com/nouseforname/a8b7ebcb9d0c05e380c7e3c81c300923
-
-# add id to skip the update
-$skipUpdate = @(
-'Microsoft.DotNet.SDK.6',
-'Microsoft.WindowsSDK',
-'AnyDeskSoftwareGmbH.AnyDesk'
-)
 #enconding to fix indetions errors
 [Console]::InputEncoding = [Console]::OutputEncoding = $InputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
 
@@ -53,19 +44,5 @@ $upgradeResult | ForEach-Object -Process {
 
   $upgrades += $Software
 }
-
 # view the list
 $upgrades | Format-Table
-
-# run through the list, compare with the skip list and execute the upgrade (could be done in the upper foreach as well)
-$upgrades | ForEach-Object -Process {
-
-  if ($skipUpdate -contains $_.Id)
-  {
-    Write-Host "Skipped upgrade to package $($_.id)"
-    return
-  }
-
-  Write-Host "Going to upgrade $($_.Id)"
-  winget upgrade -u $_.Id
-}
