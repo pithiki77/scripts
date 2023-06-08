@@ -1,6 +1,9 @@
 #enconding to fix indetions errors
 [Console]::InputEncoding = [Console]::OutputEncoding = $InputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
 
+# get rid of PSSA warning
+$null = $InputEncoding
+
 # object to be used basically for view only
 class Software {
   [string]$Name
