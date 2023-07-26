@@ -1,5 +1,6 @@
 #
 #psexec \\computer cmd -u domain\user -p password
+#psexec -i is for interactive console on remote machine
 #
 
 # show current ipv4 address and interface alias
