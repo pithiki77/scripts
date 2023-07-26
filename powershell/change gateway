@@ -1,3 +1,7 @@
+#
+#psexec \\computer cmd -u domain\user -p password
+#
+
 # show current ipv4 address and interface alias
 netsh int ipv4 show add
 
