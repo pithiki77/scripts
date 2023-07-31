@@ -16,4 +16,4 @@ $d | ForEach-Object {$_.message -match "Destination Port:\s+(\S+)">$null;$_ | Ad
 
 ## $d | Where-Object -Property SrcPort -EQ 443| ft TimeGenerated, SrcIP, SrcPort, Direction, DstIP, DstPort, Protocol -autosize
 
-$d | Where-Object -Property SrcIP -NE 10.11.12.18| Where-Object -Property SrcIP -NE 10.11.12.34|Where-Object -Property SrcIP -NE 192.168.1.142|Where-Object -Property SrcIP -NE 192.168.0.201| ft TimeGenerated, SrcIP, SrcPort, Direction, DstIP, DstPort, Protocol -autosize
+$d | Where-Object -Property SrcIP -NE 10.11.12.18| Where-Object -Property SrcIP -NE 10.11.12.34|Where-Object -Property SrcIP -NE 192.168.1.142|Where-Object -Property SrcIP -NE 192.168.0.201| format-table TimeGenerated, SrcIP, SrcPort, Direction, DstIP, DstPort, Protocol -autosize
