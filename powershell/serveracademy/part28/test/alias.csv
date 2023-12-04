@@ -1,0 +1,4 @@
+L, eventlog
+List, get-childitem
+P, ping
+W, winver
