@@ -8,3 +8,4 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 c:\Users\panos\git\scripts\powershell\serveracademy\part50\untitl.ps1
 Get-ExecutionPolicy
 #test
+#test2
