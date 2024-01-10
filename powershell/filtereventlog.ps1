@@ -1,0 +1,1 @@
+Get-WinEvent -FilterHashTable @{ LogName = "System"; StartTime =" 1-1-2024 00:00"; ID = 12,13,20,47,107,6005,6006,6008,6013,1074 } | Out-GridView
