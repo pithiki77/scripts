@@ -31,7 +31,7 @@ function Rename-Files {
             # Get the directory and base name of the file
             $fileDirectory = Split-Path -Path $fileToRename.FullName -Parent
             $fileBaseName = [System.IO.Path]::GetFileNameWithoutExtension($fileToRename.FullName)
-
+            
             # Generate the new file name with underscores separating the parts
             $newFileName = "$Part1" + "_" + "$Part2" + "_" + "$Part3"  + $fileToRename.Extension
 
@@ -44,9 +44,9 @@ function Rename-Files {
 					Write-Host "item to rename" $fileToRename.FullName
 					move-Item $fileToRename.FullName $newFilePath
 					Write-Host "File renamed successfully." $newFilePath
-					ii $newFilePath
+					Invoke-Item $newFilePath
 					start-sleep 1
-					ii $directorydest
+					Invoke-Item $directorydest
 					
 					$part2 | clip
 				}else{
