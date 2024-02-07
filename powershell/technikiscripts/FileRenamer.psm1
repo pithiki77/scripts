@@ -19,8 +19,11 @@ function Rename-Files {
     } else {
 	Write-Host "Directory already exists at the specified path"
 	}
+# Check if the source directory exists
+if (Test-Path -Path $directorydest -PathType Container) {
 
-    # Check if the source directory exists
+
+# Check if the source directory exists
     if (Test-Path -Path $SourceDirectory -PathType Container) {
         # Get the first file in the directory
 		Write-Host "getting file ." 
@@ -60,6 +63,9 @@ function Rename-Files {
     } else {
         Write-Host "Source directory not found at the specified path."
     }
+} else {
+    Write-Host "DESTINATION directory not found at the specified path."
+}
 get-childitem \\192.168.0.3\scan\*.pdf | Measure-Object |ForEach-Object {write-host ""nas remaining ($psitem.count)""}
 get-childitem u:\scan\*.pdf | Measure-Object |ForEach-Object {write-host ""U remaining ($psitem.count)""}
 }
