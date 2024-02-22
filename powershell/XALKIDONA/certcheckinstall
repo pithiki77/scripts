@@ -1,0 +1,32 @@
+# Define the issuer's distinguished name
+$issuerDN = "CN=DC1ADPKIP01-Root-CA"
+
+# Open the Trusted Root Certification Authorities store
+$store = New-Object System.Security.Cryptography.X509Certificates.X509Store -ArgumentList "Root", "LocalMachine"
+$store.Open("ReadOnly")
+
+try {
+    # Get the list of certificates in the store
+    $certificates = $store.Certificates
+
+    # Check if any certificate matches the issuer's distinguished name
+    $certExists = $false
+    foreach ($cert in $certificates) {
+        if ($cert.Issuer -eq $issuerDN) {
+            $certExists = $true
+            break
+        }
+    }
+
+    # Output the result
+    if ($certExists) {
+        Write-Host "Certificate issued by $issuerDN exists in the Trusted Root Certification Authorities store."
+    } else {
+        Write-Host "Certificate issued by $issuerDN does not exist in the Trusted Root Certification Authorities store."
+    }
+} catch {
+    Write-Host "Error occurred: $_"
+} finally {
+    # Close the certificate store
+    $store.Close()
+}
