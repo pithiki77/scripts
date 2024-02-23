@@ -1,4 +1,8 @@
 #What is the WindowsRE Image File?
+
+#KB5034441
+
+
 #WindowsRE Image file, as the name suggests, is the image file for Windows Recovery Environment. 
 #This file enables certain options on the PC like reset, system restore, system image recovery, startup repair, etc. 
 #If you have been getting the Reagentc.exe WindowsRE Image was not found message, 
