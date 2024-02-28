@@ -7,7 +7,7 @@ $disk = $Matches[1]
 $nfo -match “.*Windows RE location.*partition(\d+)” | Out-Null #Locate the partition it is on.
 $partition = $Matches[1]
 
-$disk_type = $(Get-Disk | Select-Object Number, PartitionStyle | ?{$_.Number -eq 0}).PartitionStyle #Determine disk partition style.
+$disk_type = $(Get-Disk | Select-Object Number, PartitionStyle | Where-Object{$_.Number -eq 0}).PartitionStyle #Determine disk partition style.
 
 #Start building the script to pass to diskpart.
 $Diskpart_Script = “sel disk $disk`n” #Target disk with recovery partition.
