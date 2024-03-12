@@ -58,10 +58,13 @@ copy -Path $source -Destination $destinationPath2 -Recurse
 
 #==================================================================
 
+
+Add-Type -AssemblyName System.Speech
+$SpeechSynthesizer = New-Object -TypeName System.Speech.Synthesis.SpeechSynthesizer
 $SpeechSynthesizer.SelectVoice("Microsoft Stefanos")
 $SpeechSynthesizer.Speak('Καλημέρα')
 $SpeechSynthesizer.Speak('γεια σου αποστολε και αργυρω')
-
+$SpeechSynthesizer.Speak('γεια σου αποστολε και αντιο')
 
 
 $Message = 'This is awesome.  We now know how to use Powershell Text To Speech'
